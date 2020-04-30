@@ -10,8 +10,9 @@
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "babel src --out-dir dist --ignore 'src/**/*.test.js'",
-    "prepublish": "yarn build",
-    "test": "yarn jest"
+    "prepublish": "yarn run snyk-protect && yarn build",
+    "test": "yarn jest",
+    "snyk-protect": "snyk protect"
   },
   "author": "",
   "license": "MIT",
@@ -27,6 +28,8 @@
   "dependencies": {
     "@babel/types": "^7.4.4",
     "@dubstep/core": "^3.3.1",
-    "yargs": "^13.2.4"
-  }
+    "yargs": "^13.2.4",
+    "snyk": "^1.316.1"
+  },
+  "snyk": true
 }
